@@ -1,17 +1,11 @@
 <h1>VideoGameFinder</h1>
-<ul>
+  <form action="display" method="get">
+    <label for="title">Enter a Title</label>
+    <input type="text" name="search_for_title" id="title" required>
+    <input type="submit" value="Submit">
+  </form>
+<div>
 {% for i in range(0,10)%}
-<li>Title: {{video_games[i].name}}</li>
-<li>Genre: {{video_games[i].genre}}</li>
+<p>Title: {{video_games[i].name}}, Genre: {{video_games[i].genre}}</p>
     {%endfor%}
-</ul>
-
-<!--<form action="your-url" method="post">-->
-<!--    <label for="url">Website Url</label>-->
-<!--    <input type="url" name ="url" value="">-->
-<!--    <br>-->
-<!--    <label for="code">Short Name</label>-->
-<!--    <input type="text" name="code" value="">-->
-<!--    <br>-->
-<!--    <input type="submit" value="Shorten">-->
-<!--</form>-->
+</div>
