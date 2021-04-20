@@ -1,10 +1,14 @@
 import os
-
 from flask import Flask
+from flask_mongoengine import MongoEngine
 
 
 def create_app():
     app = Flask(__name__)
+    app.config['MONGODB_SETTINGS'] = {
+        "db" : "myapp",
+    }
+    db = MongoEngine(app)
     app.config.from_mapping(
         SECRET_KEY='dev',
     )
@@ -15,8 +19,8 @@ def create_app():
     except OSError:
         pass
 
-    from . import sample
-    app.register_blueprint(sample.bp)
+    from . import video_games
+    app.register_blueprint(video_games.bp)
     # app.add_url_rule('/', endpoint='index')
 
     @app.route('/hello')

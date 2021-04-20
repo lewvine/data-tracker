@@ -1,0 +1,17 @@
+<h1>VideoGameFinder</h1>
+<ul>
+{% for i in range(0,10)%}
+<li>Title: {{video_games[i].name}}</li>
+<li>Genre: {{video_games[i].genre}}</li>
+    {%endfor%}
+</ul>
+
+<!--<form action="your-url" method="post">-->
+<!--    <label for="url">Website Url</label>-->
+<!--    <input type="url" name ="url" value="">-->
+<!--    <br>-->
+<!--    <label for="code">Short Name</label>-->
+<!--    <input type="text" name="code" value="">-->
+<!--    <br>-->
+<!--    <input type="submit" value="Shorten">-->
+<!--</form>-->
