@@ -1,17 +1,14 @@
 import os
 from flask import Flask
-from flask_mongoengine import MongoEngine
+from flask_bootstrap import Bootstrap
 
 
 def create_app():
     app = Flask(__name__)
+    Bootstrap(app)
     app.config['MONGODB_SETTINGS'] = {
         "db" : "myapp",
     }
-    db = MongoEngine(app)
-    app.config.from_mapping(
-        SECRET_KEY='dev',
-    )
 
     # ensure the instance folder exists
     try:

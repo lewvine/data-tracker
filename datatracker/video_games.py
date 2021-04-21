@@ -4,6 +4,10 @@ import requests
 
 bp = Blueprint('video_games', __name__)
 
+data = { "01-02-2020" : 1597 }
+
+labels = []
+
 video_games_list = []
 response = requests.get('https://api.dccresource.com/api/games')
 
