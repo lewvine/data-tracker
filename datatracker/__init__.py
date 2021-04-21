@@ -5,7 +5,7 @@ from flask_bootstrap import Bootstrap
 
 def create_app():
     app = Flask(__name__)
-    Bootstrap(app)
+    bootstrap = Bootstrap(app)
     app.config['MONGODB_SETTINGS'] = {
         "db" : "myapp",
     }

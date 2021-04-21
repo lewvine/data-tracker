@@ -1,6 +1,7 @@
 <h1>{{video_game.name}}</h1>
-<div>
-    <ul>
+<div class="row">
+    <ul class="col-6">
+        <li>{{video_game.name}}</li>
         <li >All-Time Rank: {{video_game.rank}}</li>
         <li>Platform: {{video_game.platform}}</li>
         <li>Release year: {{video_game.year}}</li>
@@ -12,21 +13,29 @@
         <li>Other Sales: {{video_game.other_sales}} million</li>
         <li>Global Sales: {{video_game.global_sales}} million</li>
     </ul>
-    <canvas style="max-width: 300px;" id="myChart"></canvas>
+    <canvas class="col-6" id="myChart"></canvas>
 </div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <script>
+
+var videoGameLabels = [];
+var videoGameData = [];
+{% for game in this_game_list %}
+    videoGameLabels.push('{{game.platform}}');
+    videoGameData.push({{game.global_sales}});
+{% endfor %}
+
 var data = {
-    labels: [ "North American Sales", "European Sales", "Japanese Sales", "Other Sales"],
+    labels: videoGameLabels,
     datasets: [{
-        label:'My first dataset',
+        label: 'Global Sales in Millions, by Console',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255,99,132)',
-        data: [ {{video_game.na_sales}}, {{video_game.eu_sales}}, {{video_game.jp_sales}}, {{video_game.other_sales}}, ]
+        data: videoGameData
     }]
-    };
+};
 var config = {
     type: 'bar',
     data,

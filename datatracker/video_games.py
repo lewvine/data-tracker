@@ -16,7 +16,6 @@ video_games_content = response.content
 
 # Returns an iterable list of JSON objects with a unqiue index.
 video_games_dict = json.loads(video_games_content)
-video_games = ["one game", "two games"]
 
 # Returns the first JSON object in the collection:
 for m in video_games_dict:
@@ -32,12 +31,15 @@ def index():
 @bp.route('/display', methods=('GET', 'POST'))
 def display():
     search_for_title = request.args['search_for_title']
+    this_game_list = []
     for v in video_games_list:
         if v.name == search_for_title:
-            return render_template("video_games/display.html", video_game=v)
+            this_game_list.append(v)
         else:
             continue
-        # render_template("video_games/index.html")
+    if len(this_game_list) != 0:
+        return render_template("video_games/display.html", video_game=this_game_list[0], this_game_list=this_game_list)
+
 
 @bp.route('/postform', methods=('GET', 'POST'))
 def postform():
