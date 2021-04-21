@@ -49,12 +49,14 @@ def postform():
     else:
         return render_template('video_games/postform.html', page_title="PostForm from Module Function")
 
-@bp.route('console')
+
+@bp.route('/consoles')
 def console_sales():
     ds_sales = 0
     x360_sales = 0
     ps3_sales = 0
     ps4_sales = 0
+    labels = ["3DS", "Xbox 360", "PS3", "PS4"]
     for v in video_games_list:
         if v.platform == '3DS' and v.year >= 2013:
             ds_sales += v.global_sales
@@ -64,4 +66,6 @@ def console_sales():
             ps3_sales += v.global_sales
         elif v.platform == 'PS4' and v.year >= 2013:
             ps4_sales += v.global_sales
-    return render_template("consoles.html", labels = , values = )
+    values = [ds_sales, x360_sales, ps3_sales, ps4_sales]
+
+    return render_template("video_games/consoles.html", labels=labels, values=values)
