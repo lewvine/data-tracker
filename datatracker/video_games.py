@@ -3,11 +3,6 @@ from datatracker.models.video_game import VideoGame
 import requests
 
 bp = Blueprint('video_games', __name__)
-
-data = { "01-02-2020" : 1597 }
-
-labels = []
-
 video_games_list = []
 response = requests.get('https://api.dccresource.com/api/games')
 
@@ -54,3 +49,19 @@ def postform():
     else:
         return render_template('video_games/postform.html', page_title="PostForm from Module Function")
 
+@bp.route('console')
+def console_sales():
+    ds_sales = 0
+    x360_sales = 0
+    ps3_sales = 0
+    ps4_sales = 0
+    for v in video_games_list:
+        if v.platform == '3DS' and v.year >= 2013:
+            ds_sales += v.global_sales
+        elif v.platform == 'X360' and v.year >= 2013:
+            x360_sales += v.global_sales
+        elif v.platform == 'PS3' and v.year >= 2013:
+            ps3_sales += v.global_sales
+        elif v.platform == 'PS4' and v.year >= 2013:
+            ps4_sales += v.global_sales
+    return render_template("consoles.html", labels = , values = )

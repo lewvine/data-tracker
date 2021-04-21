@@ -1,11 +1,17 @@
-<h1>VideoGameFinder</h1>
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}VideoGameFinder {% endblock %}</h1>
+{% endblock %}
+{% block content %}
   <form action="display" method="get">
     <label for="title">Enter a Title</label>
     <input type="text" name="search_for_title" id="title" required>
-    <input type="submit" value="Submit">
+    <input class="btn btn-primary" type="submit" value="Submit">
   </form>
 <div>
 {% for i in range(0,10)%}
 <p>Title: {{video_games[i].name}}, Genre: {{video_games[i].genre}}</p>
     {%endfor%}
 </div>
+{% endblock %}

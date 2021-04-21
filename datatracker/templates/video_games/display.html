@@ -1,23 +1,31 @@
-<h1>{{video_game.name}}</h1>
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} {{video_game.name}} {% endblock %}</h1>
+{% endblock %}
+{% block content %}
 <div class="row">
-    <ul class="col-6">
-        <li>{{video_game.name}}</li>
-        <li >All-Time Rank: {{video_game.rank}}</li>
-        <li>Platform: {{video_game.platform}}</li>
-        <li>Release year: {{video_game.year}}</li>
-        <li>Genre: {{video_game.genre}}</li>
-        <li>Publisher: {{video_game.publisher}}</li>
-        <li>North American Sales: {{video_game.na_sales}} million</li>
-        <li>European Sales: {{video_game.eu_sales}} million</li>
-        <li>Japanese Sales: {{video_game.jp_sales}} million</li>
-        <li>Other Sales: {{video_game.other_sales}} million</li>
-        <li>Global Sales: {{video_game.global_sales}} million</li>
-    </ul>
-    <canvas class="col-6" id="myChart"></canvas>
+    <div class="col-6">
+        <ul>
+            <li>{{video_game.name}}</li>
+            <li >All-Time Rank: {{video_game.rank}}</li>
+            <li>Platform: {{video_game.platform}}</li>
+            <li>Release year: {{video_game.year}}</li>
+            <li>Genre: {{video_game.genre}}</li>
+            <li>Publisher: {{video_game.publisher}}</li>
+            <li>North American Sales: {{video_game.na_sales}} million</li>
+            <li>European Sales: {{video_game.eu_sales}} million</li>
+            <li>Japanese Sales: {{video_game.jp_sales}} million</li>
+            <li>Other Sales: {{video_game.other_sales}} million</li>
+            <li>Global Sales: {{video_game.global_sales}} million</li>
+        </ul>
+    </div>
+    <div class="col-6">
+        <canvas class="col-6" id="myChart"></canvas>
+    </div>
 </div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
 <script>
 
 var videoGameLabels = [];
@@ -47,3 +55,4 @@ var config = {
         config
     );
 </script>
+{% endblock %}
