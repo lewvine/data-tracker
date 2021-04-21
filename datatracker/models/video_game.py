@@ -15,6 +15,9 @@ class VideoGame:
         self.global_sales = global_sales
         self.v = v
 
+    def get_rank(self):
+        return self.rank
+
     @staticmethod
     def video_game_decoder(obj):
         return VideoGame(obj['rank'], obj['name'], obj['platform'], obj['year'], obj['genre'], obj['publisher'], obj['naSales'], obj['euSales'], obj['jpSales'],obj['otherSales'],obj['globalSales'],obj['__v'])

@@ -7,7 +7,6 @@
 <div class="row">
     <div class="col-6">
         <ul>
-            <li>{{video_game.name}}</li>
             <li >All-Time Rank: {{video_game.rank}}</li>
             <li>Platform: {{video_game.platform}}</li>
             <li>Release year: {{video_game.year}}</li>
@@ -21,7 +20,7 @@
         </ul>
     </div>
     <div class="col-6">
-        <canvas class="col-6" id="myChart"></canvas>
+        <canvas class="col-6" id="salesByConsole"></canvas>
     </div>
 </div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -51,7 +50,7 @@ var config = {
 };
 
     var myChart = new Chart(
-        document.getElementById('myChart'),
+        document.getElementById('salesByConsole'),
         config
     );
 </script>

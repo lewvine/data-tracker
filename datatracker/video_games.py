@@ -18,9 +18,16 @@ for m in video_games_dict:
     video_games_list.append(video_game)
 
 
+def rank(game):
+    return game.rank
+
+
+top_ten = sorted(video_games_list, key=rank)
+
+
 @bp.route('/', methods=('GET', 'POST'))
 def index():
-    return render_template("video_games/index.html", video_games=video_games_list)
+    return render_template("video_games/index.html", video_games=top_ten)
 
 
 @bp.route('/display', methods=('GET', 'POST'))
@@ -49,7 +56,7 @@ def postform():
     else:
         return render_template('video_games/postform.html', page_title="PostForm from Module Function")
 
-@bp.route('console')
+@bp.route('/console')
 def console_sales():
     ds_sales = 0
     x360_sales = 0
@@ -64,4 +71,4 @@ def console_sales():
             ps3_sales += v.global_sales
         elif v.platform == 'PS4' and v.year >= 2013:
             ps4_sales += v.global_sales
-    return render_template("consoles.html", labels = , values = )
+    return render_template("consoles.html", labels = '', values = '')
