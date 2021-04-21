@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-6">
+        <canvas class="col-6" id="thisChart"></canvas>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+
+var videoGameConsoles = [];
+var videoGameSales = [];
+{% for console in labels %}
+    videoGameLabels.push('{{console}}');
+{% for sales in values %}
+    videoGameSales.push({{sales}});
+
+
+var data = {
+    labels: videoGameConsoles,
+    datasets: [{
+        label: 'Global Sales in Millions, by Console',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255,99,132)',
+        data: videoGameSales
+    }]
+};
+var config = {
+    type: 'bar',
+    data,
+    options: {}
+};
+
+    var myChart = new Chart(
+        document.getElementById('thisChart'),
+        config
+    );
+
+</script>
+</body>
+</html>
