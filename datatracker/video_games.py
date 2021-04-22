@@ -78,3 +78,4 @@ def console_sales():
 
     return render_template("video_games/consoles.html", labels=labels, values=values)
 
+
