@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} {{"Console Comparison"}} {% endblock %}</h1>
+{% endblock %}
+{% block content %}
+
 <div class="col-6">
         <canvas class="col-6" id="thisChart"></canvas>
     </div>
@@ -16,10 +16,11 @@
 var videoGameConsoles = [];
 var videoGameSales = [];
 {% for console in labels %}
-    videoGameLabels.push('{{console}}');
+    videoGameConsoles.push('{{console}}');
+{% endfor %}
 {% for sales in values %}
     videoGameSales.push({{sales}});
-
+{% endfor %}
 
 var data = {
     labels: videoGameConsoles,
@@ -36,11 +37,10 @@ var config = {
     options: {}
 };
 
-    var myChart = new Chart(
+    var thisChart = new Chart(
         document.getElementById('thisChart'),
         config
     );
 
 </script>
-</body>
-</html>
+{% endblock %}
