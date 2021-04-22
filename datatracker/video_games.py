@@ -77,4 +77,3 @@ def console_sales():
     values = [ds_sales, x360_sales, ps3_sales, ps4_sales]
 
     return render_template("video_games/consoles.html", labels=labels, values=values)
-
