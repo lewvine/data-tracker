@@ -4,9 +4,10 @@
   <h1>{% block title %} {{video_game.name}} {% endblock %}</h1>
 {% endblock %}
 {% block content %}
+<br/>
 <div class="row">
     <div class="col-6">
-        <ul>
+        <ul style="text-align:left">
             <li >All-Time Rank: {{video_game.rank}}</li>
             <li>Platform: {{video_game.platform}}</li>
             <li>Release year: {{video_game.year}}</li>

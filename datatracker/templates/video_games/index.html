@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}VideoGameFinder {% endblock %}</h1>
+  <h1>{% block title %}Video Game Finder {% endblock %}</h1>
+    <br/>
 {% endblock %}
 {% block content %}
   <form action="display" method="get">
     <label for="title">Enter a Title</label>
     <input type="text" name="search_for_title" id="title" required>
     <input class="btn btn-primary" type="submit" value="Submit">
+
   </form>
-<div class="row" style="padding-top: 2rem;">
-  <div class="col-6">
-      <h2 style="padding-bottom: 1rem; text-decoration: underline; font-variant: small-caps;">Top Ten Games of All-Time</h2>
-      {% for i in range(0,10)%}
-      <div class="row" style="padding-bottom: .5rem;">
-        <div class="col-1">{{video_games[i].rank}}</div>
-        <div style="font-weight: bold" class="col-6">{{video_games[i].name}}</div>
-        <div class="col-5">{{video_games[i].global_sales}} million copies</div>
-      </div>
-      {%endfor%}
-  </div>
-</div>
+
+    <div class="row" style="padding-top: 2rem;">
+    <div class="col-9 mx-auto">
+        <h2 style="padding-bottom: 1rem; text-decoration: underline; font-variant: small-caps;">Top Ten Games of All-Time</h2>
+        {% for i in range(0,10)%}
+         <div class="row" style="padding-bottom: .5rem; text-align:Left;">
+            <div class="col-1">{{video_games[i].rank}}</div>
+            <div style="font-weight: bold" class="col-6">{{video_games[i].name}}</div>
+            <div class="col-5">{{video_games[i].global_sales}} million copies</div>
+         </div>
+        {%endfor%}
+    </div>
+    </div>
+
 {% endblock %}
