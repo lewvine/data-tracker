@@ -11,6 +11,7 @@ DataTracker is a Flask / Python data visualization application that uses Chart.J
 * Flask
 * Chart.JS
 * Bootstrap
+* HTML5
 
 ## Project status:
 The project is fully functional.  I may come back and add some additional stlying to make the UI a bit easier on the eyes.
